@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: workspace
+  labels:
+    name: frontend
+spec: 
+  replicas: 1
+  selector:
+    matchLabels: 
+      name: frontend
+  template:
+    metadata:
+      labels:
+        role: frontend
+    spec: 
+      containers:
+      - name: frontend
+        image: 116521305120.dkr.ecr.us-east-1.amazonaws.com/3-tier-front-end
+        ports:
+        - containerPort: 3000
